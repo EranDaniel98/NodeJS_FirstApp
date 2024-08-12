@@ -1,5 +1,5 @@
 import React from 'react';
-import Boxes from './BlueBox'
+import {ColoredBox, Colors} from './BlueBox'
 import '../css/App.css';
 
 
@@ -10,8 +10,8 @@ const App = () => {
     <div className="App">
       <h1>IT'S ALIVE!!</h1>
         <div className="box-container">
-          {boxes.map((text, index) => (<Boxes.BlueBox key={index} text={text} />))}
-          {boxes.map((text, index) => (<Boxes.RedBox key={index} text={text} />))}
+          {boxes.map((text, index) => (<ColoredBox key={index} text={text} color={Colors.BLUE}/>))}
+          {boxes.map((text, index) => (<ColoredBox key={index} text={text} color={Colors.RED}/>))}
         </div>
     </div>
   );

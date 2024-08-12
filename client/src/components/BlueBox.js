@@ -1,16 +1,16 @@
 import React from 'react';
 import '../css/BlueBox.css';
 
-const BlueBox = ({ text }) => {
+export const Colors = Object.freeze({
+  BLUE:"blue",
+  RED:"red",
+})
+
+export const ColoredBox = ({text, color}) =>{
   return (
-    <div className="blue-box">{text}</div>
+    <div className={`${color}-box`}>{text}</div>
   );
 }
 
-const RedBox = ({ text }) => {
-  return (
-    <div className="red-box">{text}</div>
-  );
-}
 
-export default {BlueBox, RedBox};
+// export default {ColoredBox, Colors};
