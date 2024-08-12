@@ -1,16 +1,16 @@
-// src/components/MyComponent.js
 import React from 'react';
-import './BlueBox.css'; // Optional: import CSS for styling
+import '../css/BlueBox.css';
 
-function BlueBox({text}) {
-    let blue_box_html = (
-        <div className="blue-box">
-          <p>{text}</p>
-        </div>
-    );
-
-  return blue_box_html
-
+const BlueBox = ({ text }) => {
+  return (
+    <div className="blue-box">{text}</div>
+  );
 }
 
-export default BlueBox;
+const RedBox = ({ text }) => {
+  return (
+    <div className="red-box">{text}</div>
+  );
+}
+
+export default {BlueBox, RedBox};

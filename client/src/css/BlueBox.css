@@ -1,0 +1,22 @@
+/* src/components/MyComponent.css */
+.blue-box {
+  width: 80px;
+  height: 70px;
+  margin: 0;
+  background-color: lightblue;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+}
+
+.red-box {
+  width: 80px;
+  height: 70px;
+  margin: 0;
+  background-color: red;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+}
