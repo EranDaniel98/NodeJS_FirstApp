@@ -1,27 +1,17 @@
 {
-  "name": "myapp",
-  "version": "1.0.0",
-  "description": "First application to learn NodeJS & React",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EranDaniel98/NodeJS_FirstApp.git"
-  },
-  "keywords": [
-    "NodeJS",
-    "React"
-  ],
-  "author": "Eran.Daniel",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/EranDaniel98/NodeJS_FirstApp/issues"
-  },
-  "homepage": "https://github.com/EranDaniel98/NodeJS_FirstApp#readme",
-  "dependencies": {
-    "express": "^4.19.2"
+    "name": "reactjs",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "concurrently \"npm run server\" \"npm run client\"",
+      "server": "cd server && nodemon server.js",
+      "client": "cd client && npm start"
+    },
+    "dependencies": {
+      "concurrently": "^8.0.0",
+      "nodemon": "^3.0.0"
+    },
+    "devDependencies": {},
+    "author": "",
+    "license": "ISC"
   }
-}
+  
