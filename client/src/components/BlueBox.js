@@ -11,6 +11,3 @@ export const ColoredBox = ({text, color}) =>{
     <div className={`${color}-box`}>{text}</div>
   );
 }
-
-
-// export default {ColoredBox, Colors};
