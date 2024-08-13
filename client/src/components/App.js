@@ -4,7 +4,7 @@ import '../css/App.css';
 
 
 const App = () => {
-  const boxes = Array.from({ length: 9 }, (_, index) => index + 1);
+  const boxes = Array.from({ length: 4 }, (_, index) => index + 1);
 
   return (
     <div className="App">
