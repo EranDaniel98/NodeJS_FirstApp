@@ -1,5 +1,5 @@
 import React from 'react';
-import {ColoredBox, Colors} from './BlueBox'
+import {ColoredBox, Colors} from './ColoredBox'
 import '../css/App.css';
 
 
