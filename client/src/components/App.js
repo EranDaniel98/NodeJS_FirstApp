@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ColoredBox, Colors } from './ColoredBox'
+import { ColoredBox } from './ColoredBox'
 import '../css/App.css';
 
 
@@ -12,9 +12,7 @@ const App = () => {
     const fetchBoxes = async () => {
       try {
         const response = await fetch('/api/boxes');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+        if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         setBoxes(data)
       } catch (error) {
@@ -27,13 +25,8 @@ const App = () => {
     fetchBoxes();
   }, []);
 
-  if (loading) {
-    return <div className="App">Loading...</div>
-  }
-
-  if (error) {
-    return <div className="App">Error: {error}</div>
-  }
+  if (loading) return <div className="App">Loading...</div>
+  if (error) return <div className="App">Error: {error}</div>
 
   return (
     <div className="App">
