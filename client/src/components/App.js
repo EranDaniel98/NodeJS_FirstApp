@@ -1,18 +1,23 @@
-import React from 'react';
-import {ColoredBox, Colors} from './ColoredBox'
+import React, { useState, useEffect } from 'react';
+import { ColoredBox, Colors } from './ColoredBox'
 import '../css/App.css';
 
 
 const App = () => {
-  const boxes = Array.from({ length: 4 }, (_, index) => index + 1);
+  const [boxes, setBoxes] = useState([])
+
+  useEffect(() => {
+    fetch('/api/boxes')
+      .then(response => response.json())
+      .then(data => setBoxes(data))
+      .catch(error => console.error('Error fetching boxes:', error));
+  }, [])
 
   return (
     <div className="App">
-      <h1>IT'S ALIVE!!</h1>
-        <div className="box-container">
-          {boxes.map((text, index) => (<ColoredBox key={index} text={text} color={Colors.BLUE}/>))}
-          {boxes.map((text, index) => (<ColoredBox key={index} text={text} color={Colors.RED}/>))}
-        </div>
+      <div className="box-container">
+        {boxes.map((box, index) => (<ColoredBox key={index} text={box.text} color={box.color} />))}
+      </div>
     </div>
   );
 }
