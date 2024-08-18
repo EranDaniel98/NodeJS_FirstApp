@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {fetchData} from '../services/apiService'
+import {fetchJson} from '../services/apiService'
 import { ColoredBox } from './ColoredBox'
 import '../css/App.css';
 
@@ -21,7 +21,7 @@ const App = () => {
       .finally(() => setLoading(false));
   }
 
-  useEffect(() => fetchBoxes(), []);
+  useEffect(() => fetchJson('/api/boxes'), []);
 
   if (loading) return <div className="App">Loading...</div>
   if (error) return <div className="App">Error: {error}</div>
