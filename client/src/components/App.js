@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {fetchData} from '../services/apiService'
 import { ColoredBox } from './ColoredBox'
 import '../css/App.css';
 
@@ -8,22 +9,19 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchBoxes = async () => {
-      try {
-        const response = await fetch('/api/boxes');
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
-        setBoxes(data)
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+  function fetchBoxes() {
+    setLoading(true);
+    fetch('/api/boxes')
+      .then((response) => {
+        if (!response.ok) setError('Network response was not ok');
+        else return response.json();
+      })
+      .then((data) => setBoxes(data))
+      .catch((error) => setError(error.message))
+      .finally(() => setLoading(false));
+  }
 
-    fetchBoxes();
-  }, []);
+  useEffect(() => fetchBoxes(), []);
 
   if (loading) return <div className="App">Loading...</div>
   if (error) return <div className="App">Error: {error}</div>

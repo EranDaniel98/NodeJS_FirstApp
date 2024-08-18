@@ -16,3 +16,11 @@
 .box.red-box {
   background-color: red;
 }
+
+.box-container {
+  max-width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(4, 0.1fr); /* 3 columns */
+  gap: 10px; /* Space between the boxes */
+  padding: 2px;
+}
