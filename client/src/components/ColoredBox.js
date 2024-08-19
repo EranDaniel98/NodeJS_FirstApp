@@ -6,9 +6,8 @@ export const Colors = Object.freeze({
   RED: "red",
 })
 
-export const ColoredBox = (box_obj) => {
-  console.log(box_obj);
-  const [currentColor, setColor] = useState(box_obj.color);
+export const ColoredBox = ({box}) => {
+  const [currentColor, setColor] = useState(box.color);
 
   const toggleColor = () => {
     setColor(prevColor => prevColor === Colors.BLUE ? Colors.RED : Colors.BLUE);

@@ -1,28 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { fetchJson } from '../services/apiService'
 import { ColoredBox } from './ColoredBox'
-import '../css/App.css';
+import '../css/Styles.css';
 
 const App = () => {
-  const [boxes, setBoxes] = useState(undefined)
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [boxes, setBoxes] = useState(undefined);
+  const [error, setError] = useState(undefined);
 
   useEffect(() => {
     fetchJson('boxes')
       .then(data => setBoxes(data))
-      .catch(err => setError(err.message))
-      .finally(() => setLoading(false));
+      .catch(err => setError(err.message));
   }, []);
 
-  if (loading) return (<div className="App">Loading...</div>)
-  if (error) return (<div className="App">Error: {error}</div>)
+  if (error) return (<div className="App">Error: {error}</div>);
+  if (!boxes) return (<div className="App">Loading...</div>);
 
   return (
     <div className="App">
       <h1>Boxes to rule them all</h1>
       <div className="box-container">
-        {boxes.map((box, index) => (<ColoredBox key={index} box_obj={box} />))}
+        {boxes.map((box, index) => (<ColoredBox key={index} box={box} />))}
       </div>
     </div>
   );
