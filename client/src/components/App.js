@@ -8,7 +8,7 @@ const App = () => {
   const [error, setError] = useState(undefined);
 
   useEffect(() => {
-    getBoxes('boxes')
+    getBoxes()
       .then(data => setBoxes(data))
       .catch(err => setError(err.message));
   }, []);
@@ -20,7 +20,7 @@ const App = () => {
     <div className="App">
       <h1>Boxes to rule them all</h1>
       <div className="box-container">
-        {boxes.map((box, index) => (<ColoredBox key={index} box={box} />))}
+        {boxes.map((box, index) => (<ColoredBox key={index} initialBox={box} />))}
       </div>
     </div>
   );
