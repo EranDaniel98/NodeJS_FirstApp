@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchJson } from '../services/apiService'
+import { getBoxes } from '../services/apiService'
 import { ColoredBox } from './ColoredBox'
 import '../css/Styles.css';
 
@@ -8,7 +8,7 @@ const App = () => {
   const [error, setError] = useState(undefined);
 
   useEffect(() => {
-    fetchJson('boxes')
+    getBoxes('boxes')
       .then(data => setBoxes(data))
       .catch(err => setError(err.message));
   }, []);
