@@ -1,10 +1,5 @@
 .App {
   margin: auto;
-}
-
-.box-container {
   display: grid;
-  grid-template-columns: repeat(3, 0.1fr); /* 3 columns */
-  gap: 10px; /* Space between the boxes */
-  padding: 2px;
+  justify-content: center;
 }
