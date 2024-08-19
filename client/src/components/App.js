@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import {fetchJson} from '../services/apiService'
+import { fetchJson } from '../services/apiService'
 import { ColoredBox } from './ColoredBox'
 import '../css/App.css';
-
 
 const App = () => {
   const [boxes, setBoxes] = useState([])
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  function fetchBoxes() {
-    setLoading(true);
-    fetch('/api/boxes')
-      .then((response) => {
-        if (!response.ok) setError('Network response was not ok');
-        else return response.json();
+  useEffect(() => {
+    fetchJson('boxes')
+      .then(data => {
+        setBoxes(data);
+        setError(null);
       })
-      .then((data) => setBoxes(data))
-      .catch((error) => setError(error.message))
+      .catch(err => setError(err.message))
       .finally(() => setLoading(false));
-  }
-
-  useEffect(() => fetchJson('/api/boxes'), []);
+  }, []);
 
   if (loading) return <div className="App">Loading...</div>
   if (error) return <div className="App">Error: {error}</div>
