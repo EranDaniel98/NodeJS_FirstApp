@@ -7,9 +7,7 @@ let app = express();
 app.use(express.static('./build'));
 app.use('/api', apiRoute)
 
-app.get("/", function (request, response) {
-    response.sendFile(path.join(__dirname, './build', 'index.html'));
-});
+// app.get("/", function (request, response) {});
 
 app.listen(PORT, function () {
     console.log("Started application on port %d", PORT);
